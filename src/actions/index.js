@@ -28,8 +28,20 @@ export const addProduct = (name, qty, price) => ({
     price,
 });
 
+export const initStudents = (students) => ({
+    type: 'STUDENT_FETCH',
+    students,
+});
 export const addStudent = (name, tel, address) => ({
     type: 'ADD_STUDENT',
+    name,
+    tel,
+    address,
+});
+
+export const updateStudent = (id, name, tel, address) => ({
+    type: 'UPDATE_STUDENT',
+    id,
     name,
     tel,
     address,

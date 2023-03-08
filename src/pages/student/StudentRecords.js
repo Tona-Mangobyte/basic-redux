@@ -7,6 +7,7 @@ const StudentRecords = (props) => {
             <table>
                 <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Address</th>
@@ -17,7 +18,7 @@ const StudentRecords = (props) => {
                 {
                     props?.students?.map((student, index) => {
                         return(
-                            <DisplayCell student={student} key={index} index={index} />
+                            <DisplayCell student={student} key={index} index={index} handleUpdate={props.handleUpdate} />
                         )
                     })
                 }
@@ -30,11 +31,16 @@ const StudentRecords = (props) => {
 const DisplayCell = (props) => {
     return(
         <tr>
+            <td>{ props.student.id }</td>
             <td>{ props.student.name }</td>
             <td>{ props.student.tel }</td>
             <td>{ props.student.address }</td>
             <td>
-                <button>edit</button>
+                <button
+                    onClick={() => {
+                        props.handleUpdate(props.student);
+                    }}
+                >edit</button>
                 <button>remove</button>
             </td>
         </tr>

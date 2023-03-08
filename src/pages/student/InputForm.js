@@ -1,25 +1,16 @@
 import React from "react";
-import { connect } from 'react-redux'
-import {addStudent} from "../../actions";
 
 const InputForm = (props) => {
-    let name,tel, address;
+    const { register, errors, handleSubmit} = props;
     return(
         <div>
             <h3>Create Student</h3>
-            <form onSubmit={e => {
-                e.preventDefault()
-                if (!name.value.trim() || !tel.value.trim() || !address.value.trim()) {
-                    return
-                }
-                props.dispatch(addStudent(name.value, tel.value, address.value));
-                name.value = '';
-                tel.value = '';
-                address.value = '';
-            }}>
-                <input ref={node => name = node} />
-                <input ref={node => tel = node} />
-                <input ref={node => address = node} />
+            <form onSubmit={handleSubmit(props.handleCreateOrUpdate)}>
+                <input type={"hidden"} {...register("id")} />
+                <input {...register("name", { required: true })} />
+                {errors.name && <span>Name is required</span>}
+                <input {...register("tel")} />
+                <input {...register("address")} />
                 <button type="submit">
                     Add Student
                 </button>
@@ -27,4 +18,4 @@ const InputForm = (props) => {
         </div>
     );
 };
-export default connect()(InputForm);
+export default InputForm;
