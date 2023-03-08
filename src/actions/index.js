@@ -20,3 +20,10 @@ export const VisibilityFilters = {
     SHOW_COMPLETED: 'SHOW_COMPLETED',
     SHOW_ACTIVE: 'SHOW_ACTIVE'
 }
+
+export const addProduct = (name, qty, price) => ({
+    type: 'ADD_PRODUCT',
+    name,
+    qty,
+    price
+})
