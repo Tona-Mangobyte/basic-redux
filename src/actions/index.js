@@ -25,5 +25,12 @@ export const addProduct = (name, qty, price) => ({
     type: 'ADD_PRODUCT',
     name,
     qty,
-    price
-})
+    price,
+});
+
+export const addStudent = (name, tel, address) => ({
+    type: 'ADD_STUDENT',
+    name,
+    tel,
+    address,
+});
