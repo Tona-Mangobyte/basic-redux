@@ -6,6 +6,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import rootReducer from './reducers'
 import AppRoute from "./routes";
+import './assets/style.css';
 
 const store = createStore(rootReducer)
 
